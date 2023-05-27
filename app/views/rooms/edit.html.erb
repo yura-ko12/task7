@@ -1,4 +1,4 @@
-<h1>施設登録</h1>
+<h1>施設編集</h1>
 
 <%= form_with model: @room do |f| %>
   <table>
@@ -21,11 +21,11 @@
     </tr>
     <%= f.hidden_field :user_id, value: @user.id %>
   </table>
-
+  
   <div>
     <ul>
       <li><%= f.submit "登録完了する"%></li>
-      <li><%= link_to "戻る", rooms_path %></li>
+      <li><%= link_to "戻る", "/users/#{current_user.id}" %></li>
     </ul>
   </div>
 <% end %>

@@ -1,0 +1,14 @@
+<h3>施設一覧</h3>
+<table>
+   <tbody>
+     <% @rooms.each do |room| %>
+       <tr>
+         <td><%= room.name %></td>
+         <td><%= room.fee %></td>
+         <td><%= room.address %></td>
+         <td><%= room.introduction %></td>
+         <td><%= link_to "詳細", room_path(room) %></td>
+       </tr>
+     <% end %>
+   </tbody>
+</table>  

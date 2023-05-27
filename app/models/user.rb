@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, :email, :password, :password_confirmation, presence: true, on: :create
+
+  has_many :rooms
 end

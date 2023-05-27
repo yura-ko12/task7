@@ -1,0 +1,27 @@
+<h1>施設詳細</h1>
+
+<table>
+  <tr>
+    <th>施設名</th>
+    <td><%= @room.name %></td>
+  </tr>
+  <tr>
+    <th>料金</th>
+    <td><%= @room.fee %></td>
+  </tr>
+  <tr>
+    <th>所在地</th>
+    <td><%= @room.address %></td>
+  </tr>
+
+  <tr>
+    <th>紹介</th>
+    <td><%= @room.introduction%></td>
+  </tr>
+
+<% if @room.user_id == current_user.id %>
+  <td><%= link_to "編集", edit_room_path(@room.id) %></td>
+  <td><%= link_to "削除", room_path(@room.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+<% end %>
+<td><%= link_to "戻る", :back %></td>
+  </table>
