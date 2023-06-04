@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  
 
   devise_scope :user do
     root 'users/sessions#new'
@@ -16,6 +15,8 @@ Rails.application.routes.draw do
   
   resources :users
   resources :rooms
+  resources :reservations
+  get "reservations/:id/reconfirm", to: "reservations#reconfirm"
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

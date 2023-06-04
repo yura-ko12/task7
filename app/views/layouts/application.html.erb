@@ -9,13 +9,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
       <a href="#">ほりいとらべる</a>
       <div class="link">
       <% if user_signed_in? %>
+        <% if current_user.image.attached? %>
+          <%= image_tag current_user.image.variant(resize: '50x50'), class: 'icon', alt: 'アイコン画像'%>
+        <% else %>
+          <%= image_tag 'default_user.png', class: 'icon', alt: 'アイコン画像' %>
+        <% end %>
         <%= link_to current_user.name, users_me_path %>
+        <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+          <%= f.select :area, [["東京","東京"], ["大阪","大阪"], ["京都", "京都"], ["札幌", "札幌"]], include_blank: "エリアを選択" %>
+          <%= f.text_field :freeword,  placeholder: "フリーワード検索"%>
+          <%= f.submit '検索', name: nil %>
+        <% end %>
         <ul>
           <li><%= link_to "アカウント", users_me_path %></li>
           <li><%= link_to "アカウント編集", edit_user_registration_path %></li>
@@ -24,6 +33,7 @@
           <li><%= link_to "施設一覧(自分が登録したもののみ)", users_path %></li>
           <li><%= link_to "施設登録", new_room_path %></li>
           <li><%= link_to "施設検索", rooms_path %></li>
+          <li><%= link_to "予約済み施設一覧", reservations_path %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>
 

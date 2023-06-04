@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   validates :name, :email, :password, :password_confirmation, presence: true, on: :create
 
-  has_many :rooms
+  has_many :rooms 
+  has_many :reservations
+  has_one_attached :image
 end

@@ -1,7 +1,11 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.all
-    @rooms = @rooms.where('address LIKE ?', "%#{params[:area]}%") if params[:area].present?
+    if params[:area] == "札幌"
+      @rooms = @rooms.where('address LIKE ?', "%#{params[:area]}%").where('name LIKE ? OR introduction LIKE ?', "%#{params[:freeword]}%", "%#{params[:freeword]}%")
+    else
+      @rooms = @rooms.where('address LIKE ?', "#{params[:area]}%").where('name LIKE ? OR introduction LIKE ?', "%#{params[:freeword]}%", "%#{params[:freeword]}%") 
+    end
   end
 
   def new
@@ -22,7 +26,9 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @room = Room.find(params[:id])
+    $room_id = params[:id]
   end
 
   def edit
@@ -33,7 +39,7 @@ class RoomsController < ApplicationController
   def update
     @room = Room.find(params[:id])
       
-    if @room.update(params.require(:room).permit(:name, :fee, :address, :introduction, :user_id))
+    if @room.update(params.require(:room).permit(:name, :fee, :address, :introduction, :user_id, :room_image))
       flash[:notice] = "内容を更新しました"
       redirect_to users_path
     else
@@ -43,7 +49,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-
+    
   end
 
 
