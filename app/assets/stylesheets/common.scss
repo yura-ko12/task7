@@ -12,6 +12,7 @@ h1, h2, h3{
 li, ul, a{
   color: inherit;
   list-style: none;
+  margin-bottom: 10px;
   text-decoration: none;
 }
 
@@ -28,8 +29,6 @@ li, ul, a{
 .contents .button:hover{
   color: #ffffff;
   background-color: #99cc65;
-
-  // opacity: 0.6;
 }
 
 // ドロップダウンリスト
@@ -95,8 +94,9 @@ h1{
 }
 
 table{
-margin: 20px;
+  margin: 20px;
 }
+
 
 
 
@@ -123,6 +123,7 @@ margin: 20px;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+  margin-bottom: 20px;
   width: 300px;
 }
 
@@ -138,9 +139,7 @@ margin: 20px;
 // 施設詳細
 .room-show table{
   text-align: left;
-  width: 300px;
 }
-
 
 //施設一覧
 

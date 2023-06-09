@@ -1,4 +1,5 @@
-<h1>宿泊予約</h1>
+<div class="contents">
+<h2>宿泊予約</h2>
 
 <%= form_with model: @reservation do |f| %>
   <table>
@@ -25,8 +26,9 @@
 
   <div>
     <ul>
-      <li><%= f.submit "予約する"%></li>
-      <li><%= link_to "戻る", :back %></li>
+      <li><%= f.submit "予約する", class: "button"%></li>
+      <li><%= link_to "←戻る", :back, class: "button" %></li>
     </ul>
   </div>
 <% end %>
+</div>

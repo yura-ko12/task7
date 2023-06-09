@@ -18,8 +18,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.require(:user,).permit(:name, :introduction, :image))
-       binding.pry 
+    if @user.update(user_params)
         flash[:notice] = "内容を更新しました"
         redirect_to "/users/#{current_user.id}"
     else
@@ -28,4 +27,10 @@ class UsersController < ApplicationController
     end
   end
   
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :introduction, :image)
+  end
 end

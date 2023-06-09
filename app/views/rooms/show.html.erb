@@ -27,14 +27,14 @@
         <td><%= @room.introduction%></td>
       </tr>
     <% if @user %>
-      <td><%= link_to "予約はこちら", new_reservation_path, class: "button" %></td>
-    <% else %>
-      <td><%= link_to "ログインはこちら", new_user_session_path, class: "button" %></td>
-    <% end %>
-    <% if @room.user_id == current_user.id %>
-      <td><%= link_to "編集", edit_room_path(@room.id), class: "button" %></td>
-      <td><%= link_to "削除", room_path(@room.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "button" %></td>
-    <% end %>
-    <td><%= link_to "←戻る", :back, class: "button" %></td>
+        <td><%= link_to "予約はこちら", new_reservation_path, class: "button" %></td>
+      <% else %>
+        <td><%= link_to "ログインはこちら", new_user_session_path, class: "button" %></td>
+      <% end %>
+      <% if @room.user_id == current_user.id %>
+        <td><%= link_to "編集", edit_room_path(@room.id), class: "button" %></td>
+        <td><%= link_to "削除", room_path(@room.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "button" %></td>
+      <% end %>
+      <td><%= link_to "←戻る", :back, class: "button" %></td>
   </table>
 </div>

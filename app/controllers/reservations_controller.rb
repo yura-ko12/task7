@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :num_of_persons, :user_id, :room_id))
+    @reservation = Reservation.new(reservation_params)
     @user = current_user
     @room = Room.find($room_id)
     if @reservation.save
@@ -49,5 +49,11 @@ class ReservationsController < ApplicationController
     redirect_to rooms_path
   end
 
+
+  private
+
+  def reservation_params
+    params.require(:reservation).permit(:check_in, :check_out, :num_of_persons, :user_id, :room_id)
+  end
 
 end

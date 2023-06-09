@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
 
   def create
     @user = User.find(current_user.id)
-    @room = Room.new(params.require(:room).permit(:name, :fee, :address, :introduction, :user_id))
+    @room = Room.new(room_params)
     if @room.save
       flash[:notice] = "施設を新規登録しました"
       redirect_to rooms_path
@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
   def update
     @room = Room.find(params[:id])
       
-    if @room.update(params.require(:room).permit(:name, :fee, :address, :introduction, :user_id, :room_image))
+    if @room.update(room_params)
       flash[:notice] = "内容を更新しました"
       redirect_to users_path
     else
@@ -52,6 +52,10 @@ class RoomsController < ApplicationController
     
   end
 
+private
 
+def room_params
+  params.require(:room).permit(:name, :fee, :address, :introduction, :user_id, :room_image)
+end
 
 end
