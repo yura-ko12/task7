@@ -1,0 +1,23 @@
+<div class="contents">
+  <h2>マイアカウント</h2>
+
+  <table>
+    <tr>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @user.email %></td>
+    </tr>
+
+    <tr>
+      <th>パスワード</th>
+      <td>*********</td>
+    </tr>
+  </table>
+  <li>
+    <%= link_to "編集", edit_user_registration_path, class: "button" %>
+  </li>
+</div>

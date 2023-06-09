@@ -1,0 +1,22 @@
+<div class="contents">
+  <h2>プロフィール</h2>
+  <table>
+    <tr>
+      <th>アイコン画像</th>
+      <% if @user.image.attached? %>
+            <td><%= image_tag @user.image.variant(resize: '50x50'), class: 'icon', alt: 'アイコン画像'%></td>
+          <% else %>
+            <td><%= image_tag 'default_user.png', class: 'icon', alt: 'アイコン画像' %></td>
+          <% end %>
+    </tr>
+    
+    <tr>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <td><%= @user.introduction%></td>
+    </tr>
+    </table>
+  </div>

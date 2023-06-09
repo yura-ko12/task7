@@ -1,0 +1,28 @@
+<div class="contents rooms">  
+  <h3>予約済み施設一覧</h3>
+  <table>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <% room = Room.find(reservation.room_id) %>
+        <% num_of_days = (reservation.check_out - reservation.check_in).to_i %>
+        <% all_fee = reservation.num_of_persons * num_of_days * room.fee %>
+        <tr>
+          <td>
+            <% if room.room_image.attached? %>
+                <%= image_tag room.room_image.variant(resize: '50x50'), class: 'room_image', alt: '施設画像'%>
+            <% else %>
+                <%= image_tag 'default_room.png', class: 'room_image', alt: '施設画像' %>
+            <% end %>
+          </td>
+          <td><%= room.name %></td>
+          <td><%= room.introduction %></td>
+          <td><%= all_fee %>円</td>
+          <td><%= reservation.check_in.to_s(:datetime_jp) %>〜</td>
+          <td><%= reservation.check_out.to_s(:datetime_jp) %></td>
+          <td><%= reservation.updated_at.to_s(:datetime_jp) %></td>
+          <td><%= link_to "詳細", reservation_path(reservation.id), class:"button" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>  
+</div>

@@ -1,0 +1,37 @@
+<div class="contents"> 
+  <h2>施設編集</h2>
+
+  <%= form_with model: @room do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :room_image ,"施設画像" %></th>
+        <td><%= f.file_field :room_image %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :name ,"施設名" %></th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :fee ,"料金(/1泊)" %></th>
+        <td><%= f.text_field :fee %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :address ,"所在地" %></th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :introduction ,"紹介文" %></th>
+        <td><%= f.text_area :introduction %></td>
+      </tr>
+      <%= f.hidden_field :user_id, value: @user.id %>
+    </table>
+    
+    <div>
+      <ul>
+        <li><%= f.submit "登録完了する", class: "button" %></li>
+        <li><%= link_to "←戻る", "/users/#{current_user.id}", class: "button" %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>

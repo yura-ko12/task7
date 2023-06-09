@@ -1,0 +1,148 @@
+// 全体
+body{
+  color: #000000;
+  margin: 0;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+
+h1, h2, h3{
+  margin: 0;
+}
+
+li, ul, a{
+  color: inherit;
+  list-style: none;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.button {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  margin: 10px 0 10px 0;
+}
+
+.contents .button:hover{
+  color: #ffffff;
+  background-color: #99cc65;
+}
+
+// ドロップダウンリスト
+.dropdown-lists{
+  background-color: #ffffff;
+  display: none;
+  margin: 0;
+  padding: 10px 10px;
+  position: absolute;
+  text-align: center;
+  width: fit-content;
+}
+
+.dropdown-lists li{
+  position: relative;
+}
+
+.dropdown-lists li:hover{
+  background-color: #97cdf3;
+}
+
+.menu:hover .dropdown-lists{
+  display: block;
+}
+
+// ヘッダー
+header{
+  background-color: #7fd9d2;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+h1{
+  color: #ffffff;
+}
+
+.search, .link{
+  line-height: 50px;
+  vertical-align: middle;
+}
+
+.login{
+  margin-right: 10px;
+}
+
+.login:hover{
+  color: #ffffff;
+  transition: 0.1s;
+}
+// 各ページ
+.contents{
+  margin: 30px;
+}
+.contents h2{
+  margin-bottom: 20px;
+}
+
+.contents .button{
+  background-color: #e6f0f0;
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+table{
+  margin: 20px;
+}
+
+
+
+
+// アカウント編集
+.form{
+  margin: 15px 0;
+}
+
+.field{
+  margin-bottom: 10px;
+}
+
+// 施設一覧
+.rooms{
+  width: 100%;
+}
+
+.room_image{
+  height: 180px;
+  width: 300px;
+}
+
+.rooms tr{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.rooms td:nth-child(2){
+  font-size: 25px;
+}
+
+.rooms tbody{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// 施設詳細
+.room-show table{
+  text-align: left;
+}
+
+//施設一覧
+
+.rooms a:hover{
+  background-color: #e6f0f0;
+}
